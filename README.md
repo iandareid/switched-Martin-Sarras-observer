@@ -52,5 +52,8 @@ Next, run the plot generation script.
 python3 observer_labeling/scripts/preview_and_label_trajectory.py --target-depth 7
 ```
 
+### AI Use
+This repositiory was created with the assitance of Codex.
+
 You should see a window pop up with the simulator creating the 25 second trajectory.
 Once you close the window, the branch and bound algorithm will then run, this will likely take over 400 seconds to run. You will then find the plots generated in the `results` directory.
