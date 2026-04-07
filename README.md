@@ -30,7 +30,7 @@ It also compares my observer's output to the Mahony filter.
 First, install the dependencies,
 
 ```bash
-git clone --recurse-submodules git@github.com:iandareid/switched-Martin-Sarras-observer.git
+git clone --recursive https://github.com/iandareid/switched-Martin-Sarras-observer.git
 cd switched-Martin-Sarras-observer
 python -m venv .venv
 source .venv/bin/activate
@@ -47,7 +47,7 @@ git submodule update --init --recursive
 Next, run the plot generation script.
 
 ```bash
-.venv/bin/python -m observer_labeling.scripts.preview_and_label_trajectory --target-depth 7
+python3 observer_labeling/scripts/preview_and_label_trajectory.py --target-depth 7
 ```
 
 You should see a window pop up with the simulator creating the 25 second trajectory.
