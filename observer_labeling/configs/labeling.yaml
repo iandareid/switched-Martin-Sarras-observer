@@ -1,0 +1,35 @@
+data:
+  trajectory_path: "observer_labeling/data/seeded_human_like.npz"
+  seed: 7
+  duration: 25.0
+  traj_dt: 0.05
+
+env:
+  estimator_rate_hz: 400.0
+  decision_rate_hz: 4.0
+  hold_steps: 100
+
+label_search:
+  target_depth: 7
+  w_attitude: 5.0
+  w_gyro_bias: 30.0
+  w_accel_bias: 30.0
+  attitude_pre_break_gain: 5.0
+  attitude_break_norm: 0.07
+  attitude_transition_width: 0.01
+  attitude_post_break_gain: 20.0
+  gyro_bias_pre_break_gain: 1.0
+  gyro_bias_break_norm: 200.0
+  gyro_bias_transition_width: 0.01
+  gyro_bias_post_break_gain: 10.0
+  accel_bias_pre_break_gain: 1.5
+  accel_bias_break_norm: 0.04
+  accel_bias_transition_width: 0.01
+  accel_bias_post_break_gain: 2.5
+  mahony:
+    k_p: 2.0
+    k_i: 0.1
+    accel_weight: 1.0
+    mag_weight: 1.0
+    accel_gate_margin_mps2: 0.5
+    g_ref_mps2: 9.81

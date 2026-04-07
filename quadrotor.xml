@@ -1,0 +1,38 @@
+<mujoco model="quadrotor">
+  <compiler angle="radian" coordinate="local"/>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="RK4"/>
+
+  <visual>
+    <headlight ambient="0.6 0.6 0.6" diffuse="0.4 0.4 0.4" specular="0 0 0"/>
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+    <material name="body_mat" rgba="0.2 0.2 0.25 1"/>
+    <material name="arm_mat"  rgba="0.1 0.1 0.1 1"/>
+    <material name="rotor_mat" rgba="0.8 0.1 0.1 1"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 3"/>
+    <geom name="ground" type="plane" size="5 5 0.1" rgba="0.9 0.9 0.9 1"/>
+
+    <body name="drone" pos="0 0 0.3">
+      <freejoint/>
+
+      <!-- Main body -->
+      <inertial pos="0 0 0" mass="1.0" diaginertia="0.01 0.01 0.02"/>
+      <geom name="core" type="box" size="0.05 0.03 0.02" material="body_mat"/>
+
+      <!-- Arms -->
+      <geom name="arm_x" type="capsule" fromto="-0.18 0 0  0.18 0 0" size="0.008" material="arm_mat"/>
+      <geom name="arm_y" type="capsule" fromto="0 -0.18 0  0 0.18 0" size="0.008" material="arm_mat"/>
+
+      <!-- Rotor markers / thrust application sites -->
+      <site name="rotor1" pos=" 0.18  0.00 0" size="0.015" rgba="1 0 0 1"/>
+      <site name="rotor2" pos=" 0.00  0.18 0" size="0.015" rgba="0 1 0 1"/>
+      <site name="rotor3" pos="-0.18  0.00 0" size="0.015" rgba="0 0 1 1"/>
+      <site name="rotor4" pos=" 0.00 -0.18 0" size="0.015" rgba="1 1 0 1"/>
+    </body>
+  </worldbody>
+</mujoco>
